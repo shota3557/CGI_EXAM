@@ -10,7 +10,7 @@
     <% connection = PG::connect(dbname: "goya") %>
     <% connection.internal_encoding = "UTF-8" %>
 
-    <% result = connection.exec("select give_for from crops where give_for = '総務のおばちゃん';") %>
+    <% result = connection.exec("select give_for from crops where not give_for = '自家消費';") %>
     <% data = [] %>
 
     <% result.each do |record| %>
